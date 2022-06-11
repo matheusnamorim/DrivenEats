@@ -6,8 +6,14 @@ body{
     background-color: #E5E5E5;
 }
 
+ion-icon{
+    font-size: 16px;
+    color: #32B72F;
+}
+
 .topo{
     position: fixed;
+    z-index: 1;
     top: 0;
     left: 0;
     right: 0;
@@ -41,7 +47,7 @@ body{
     width: 100%;
     margin: 123px 0;
 }
-.conteudo div{
+.conteudo > div{
     margin-bottom: 30px;
 }
 
@@ -60,6 +66,7 @@ body{
     overflow-x: scroll;
     display: flex;
     margin-top: 15px;
+    height: 235px;
 }
 
 .opcaoPosicionar{
@@ -74,6 +81,7 @@ body{
 }
 
 .item{
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -104,7 +112,16 @@ body{
     color: #000000;
 }
 
+.botaoCheck1,
+.botaoCheck2,
+.botaoCheck3{
+    position: absolute;
+    bottom: 8px;
+    right: 0;
+}
+
 .fechar_pedido{
+    z-index: 1;
     position: fixed;
     left: 0;
     right: 0;
@@ -124,9 +141,29 @@ body{
     justify-content: center;
 }
 
-.botao h1{
+.fecharPedido{
     text-align: center;
     font-size: 20px;
     font-weight: 400;
     color: #FFFFFF;
+}
+
+.colorGreen{
+    background-color: #32B72F;
+}
+
+.escondido{
+    display: none;
+}
+
+.visivel1,
+.visivel2,
+.visivel3{
+    display: initial;
+}
+
+.selecionadoPrato,
+.selecionadoBebida,
+.selecionadoSobremesa{
+    box-shadow: inset 0px 0px 0px 5px #32B72F;
 }
