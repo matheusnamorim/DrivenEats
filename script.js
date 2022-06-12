@@ -2,6 +2,7 @@
     let btnBebida = false;
     let btnSobremesa = false;
     let btnFinalizar = false;
+    let newprato,newbebida, newsobremesa, total;
 
 function selecionarPrato(elemento){
     const botao = document.querySelector(".selecionadoPrato");
@@ -65,16 +66,17 @@ function finalizar(){
 }
 
 function escolha(){
+
     let prato = document.querySelector(".selecionadoPrato .item h1");
-    let newprato = prato.innerHTML;
+    newprato = prato.innerHTML;
     let valorPrato = document.querySelector(".selecionadoPrato .item h3");
     let newValorPrato = valorPrato.innerHTML;
     let bebida = document.querySelector(".selecionadoBebida .item h1");
-    let newbebida = bebida.innerHTML;
+    newbebida = bebida.innerHTML;
     let valorBebida = document.querySelector(".selecionadoBebida .item h3");
     let newValorBebida = valorBebida.innerHTML;
     let sobremesa = document.querySelector(".selecionadoSobremesa .item h1");
-    let newsobremesa = sobremesa.innerHTML;
+    newsobremesa = sobremesa.innerHTML;
     let valorSobremesa = document.querySelector(".selecionadoSobremesa .item h3");
     let newValorSobremesa = valorSobremesa.innerHTML;
     
@@ -102,12 +104,19 @@ function escolha(){
     newValorSobremesa = TransformaPonto(newValorSobremesa);
     newValorSobremesa = TransformaNumero(newValorSobremesa);
 
-    let total = newValorPrato + newValorBebida + newValorSobremesa;
+    total = newValorPrato + newValorBebida + newValorSobremesa;
     total = total.toFixed(2);
     
     let Total = document.querySelector(".resultado h2");
     Total.innerHTML = `R$ ${total}`;
 
+    
+}
+
+function Pedir(){
+    let nome = prompt("Digite seu nome:");
+    let endereco = prompt("Digite seu endereço:");
+    Mensagem(newprato, newbebida, newsobremesa, total, nome, endereco);
 }
 
 function voltar(){
@@ -128,4 +137,14 @@ function TransformaPonto(x){
 function TransformaNumero(x){
     x = parseFloat(x);
     return x;
+}
+
+function Mensagem(prato, bebida, sobremesa, total, nome, endereco){
+
+    let numero = 5562985810096;
+    let mensagem = "Olá, gostaria de fazer o pedido:\n- Prato: " + prato + "\n- Bebida: " + bebida + "\n- Sobremesa: " 
+    + sobremesa + "\nTotal: " + total + "\n\nNome: " + nome + "\nEndereço: " + endereco + "\n";
+    mensagem = encodeURIComponent(mensagem);
+
+    window.open("https://wa.me/"+numero+"?text="+mensagem);
 }
