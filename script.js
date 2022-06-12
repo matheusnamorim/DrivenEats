@@ -1,6 +1,7 @@
     let btnPrato = false;
     let btnBebida = false;
     let btnSobremesa = false;
+    let btnFinalizar = false;
 
 function selecionarPrato(elemento){
     const botao = document.querySelector(".selecionadoPrato");
@@ -50,5 +51,81 @@ function btnConfirmar(){
     if(btnPrato === true && btnBebida === true && btnSobremesa === true) {
         botao.innerHTML = `Fechar pedido`;
         cor.classList.add("colorGreen"); 
+        btnFinalizar = true;
     }
+}
+
+function finalizar(){
+    const alterar = document.querySelector(".finalizarPedido");
+    if(btnFinalizar === true){
+        escolha();
+        alterar.classList.remove("escondido");
+    }
+
+}
+
+function escolha(){
+    let prato = document.querySelector(".selecionadoPrato .item h1");
+    let newprato = prato.innerHTML;
+    let valorPrato = document.querySelector(".selecionadoPrato .item h3");
+    let newValorPrato = valorPrato.innerHTML;
+    let bebida = document.querySelector(".selecionadoBebida .item h1");
+    let newbebida = bebida.innerHTML;
+    let valorBebida = document.querySelector(".selecionadoBebida .item h3");
+    let newValorBebida = valorBebida.innerHTML;
+    let sobremesa = document.querySelector(".selecionadoSobremesa .item h1");
+    let newsobremesa = sobremesa.innerHTML;
+    let valorSobremesa = document.querySelector(".selecionadoSobremesa .item h3");
+    let newValorSobremesa = valorSobremesa.innerHTML;
+    
+    newValorPrato = tirarSifrao(newValorPrato);
+    newValorBebida = tirarSifrao(newValorBebida);
+    newValorSobremesa = tirarSifrao(newValorSobremesa);
+
+    let item = document.querySelector(".prato h1");
+    item.innerHTML = `${newprato}`;    
+    let Valor = document.querySelector(".prato h2");
+    Valor.innerHTML = `${newValorPrato}`;
+    item = document.querySelector(".bebida h1");
+    item.innerHTML = `${newbebida}`;    
+    Valor = document.querySelector(".bebida h2");
+    Valor.innerHTML = `${newValorBebida}`;
+    item = document.querySelector(".sobremesa h1");
+    item.innerHTML = `${newsobremesa}`;    
+    Valor = document.querySelector(".sobremesa h2");
+    Valor.innerHTML = `${newValorSobremesa}`;
+
+    newValorPrato = TransformaPonto(newValorPrato);
+    newValorPrato = TransformaNumero(newValorPrato);
+    newValorBebida = TransformaPonto(newValorBebida);
+    newValorBebida = TransformaNumero(newValorBebida);
+    newValorSobremesa = TransformaPonto(newValorSobremesa);
+    newValorSobremesa = TransformaNumero(newValorSobremesa);
+
+    let total = newValorPrato + newValorBebida + newValorSobremesa;
+    total = total.toFixed(2);
+    
+    let Total = document.querySelector(".resultado h2");
+    Total.innerHTML = `R$ ${total}`;
+
+}
+
+function voltar(){
+    const alterar = document.querySelector(".finalizarPedido");
+    alterar.classList.add("escondido");
+}
+
+function tirarSifrao (x){
+    x = x.replace("R$", "");
+    return x;
+}
+
+function TransformaPonto(x){
+    x = x.replace(",", ".");
+    return x;
+}
+
+function TransformaNumero(x){
+    x = parseFloat(x);
+    return x;
 }

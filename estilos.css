@@ -45,7 +45,8 @@ ion-icon{
 
 .conteudo{
     width: 100%;
-    margin: 123px 0;
+    padding: 123px 0;
+    z-index: -1;
 }
 .conteudo > div{
     margin-bottom: 30px;
@@ -65,12 +66,16 @@ ion-icon{
 .menu{
     overflow-x: scroll;
     display: flex;
-    margin-top: 15px;
+    margin:  15px 20px 0 20px;
     height: 235px;
 }
 
 .opcaoPosicionar{
-    margin: 0 20px;
+    margin-right: 20px;
+}
+
+.last{
+    margin-right: 0px;
 }
 
 .opcao{
@@ -78,6 +83,7 @@ ion-icon{
     width: 172px;
     border-radius: 10px;
     background-color: white;
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.25);
 }
 
 .item{
@@ -121,11 +127,11 @@ ion-icon{
 }
 
 .fechar_pedido{
-    z-index: 1;
     position: fixed;
     left: 0;
     right: 0;
     bottom: 0;
+    z-index: 1;
     height: 92px;
     background-color: #FFFFFF;
 }
@@ -148,6 +154,86 @@ ion-icon{
     color: #FFFFFF;
 }
 
+.finalizarPedido{
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.pedidoFinal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 380px;
+    height: 350px;
+    border-radius: 9px;
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.25);
+    background-color: #50D074;
+}
+
+.pedidoFinal p{
+    font-size: 22px;
+    font-weight: 700;
+    color: white;
+}
+
+.itens{
+    width: 330px;
+}
+
+.itens h1,
+.itens h2{
+    font-size: 22px;
+    font-weight: 400;
+    color: #FFFFFF;
+}
+
+.prato,
+.bebida,
+.sobremesa{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 13px;
+}
+
+.resultado{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btnPedir{
+    width: 329px;
+    height: 52px;
+    border-radius: 100px;
+    text-align: center;
+    background-color: white;
+}
+
+.btnPedir p{
+    margin: 15px 0;
+    color: #50D074;
+}
+
+.btnCancelar{
+    width: 333px;
+    height: 52px;
+    text-align: center;
+}
+
+.btnCancelar p{
+    margin: 15px 0;
+}
+
 .colorGreen{
     background-color: #32B72F;
 }
@@ -156,6 +242,7 @@ ion-icon{
     display: none;
 }
 
+.visivel,
 .visivel1,
 .visivel2,
 .visivel3{
